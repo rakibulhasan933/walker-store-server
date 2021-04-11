@@ -33,10 +33,10 @@ client.connect(err => {
 
     app.post("/addProduct", (req, res) => {
         const products = req.body;
-        // console.log("adding products", products);
+        console.log("adding products", products);
         collection.insertOne(products)
             .then(result => {
-                // console.log('database count', result.insertedCount);
+                console.log('database count', result.insertedCount);
                 res.send(result.insertedCount > 0)
             })
     })
@@ -45,7 +45,7 @@ client.connect(err => {
         console.log("adding products", products);
         oderCollection.insertOne(products)
             .then(result => {
-                // console.log('database count', result.insertedCount);
+                console.log('database count', result.insertedCount);
                 res.send(result.insertedCount > 0)
             })
     })
@@ -66,7 +66,7 @@ client.connect(err => {
         console.log(req.params.id);
         collection.deleteOne({ _id: ObjectId(req.params.id) })
             .then(result => {
-                // console.log(result);
+                console.log(result);
             })
     });
 
